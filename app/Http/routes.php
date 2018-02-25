@@ -37,7 +37,10 @@ Route::get('tasks/{id}/edit', 'TasksController@edit')->name('messages.edit');
 
 */
 
-
+// ログイン認証
+Route::get('login', 'Auth\AuthController@getLogin')->name('login.get');
+Route::post('login', 'Auth\AuthController@postLogin')->name('login.post');
+Route::get('logout', 'Auth\AuthController@getLogout')->name('logout.get');
 
 Route::get('/', 'TasksController@index');
 
@@ -45,7 +48,4 @@ Route::get('/', 'TasksController@index');
 
 Route::resource('tasks', 'TasksController');
 
-// ログイン認証
-Route::get('login', 'Auth\AuthController@getLogin')->name('login.get');
-Route::post('login', 'Auth\AuthController@postLogin')->name('login.post');
-Route::get('logout', 'Auth\AuthController@getLogout')->name('logout.get');
+
